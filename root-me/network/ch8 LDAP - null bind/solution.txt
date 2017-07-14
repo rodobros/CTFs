@@ -1,0 +1,10 @@
+1-input the following command in the terminal :
+ldapsearch -x -h challenge01.root-me.org -p 54013 -b "ou=anonymous,dc=challenge01,dc=root-me,dc=org"
+
+-x : specifies that the authentification is anonymous (null bind)
+-h challenge01.root-me.org : the host
+-p 54013 : the port
+-b "ou=anonymous,dc=challenge01,dc=root-me,dc=org" : where the search starts
+
+*ou : organizational unit
+*dc : domain component, the components of the domain

@@ -1,0 +1,7 @@
+1-go on this website which allows to decrypt cisco type 5 passwords :
+http://www.ifm.net.nz/cookbooks/passwordcracker.html
+*it is also possible to decrypt type 7 with an dictionnary attack
+*another method for dictionnary attack : openssl passwd -1 -salt <the salt used> -table -in <a long english word list> | grep <a part of the hash>
+
+2-decrypt a few type 5 password, notice the pattern 6sK0_username
+3-the answer is 6sK0_enable

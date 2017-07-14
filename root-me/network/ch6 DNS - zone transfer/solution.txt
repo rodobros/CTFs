@@ -1,0 +1,8 @@
+1-notice that host and dns name are not the same!
+2- enter the following command to ask the dns for the zone data (act like a slave DNS asking the master DNS for its information), this is a zone transfer.
+dig @challenge01.root-me.org -p 54011 ch11.challenge01.root-me.org axfr
+
+@challenge01.root-me.org : name of the host
+-p 54011 : the port
+ch11.challenge01.root-me.org : DNS name
+axfr : request the zone data
