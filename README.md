@@ -1,5 +1,5 @@
 # CTFs
-My writeups for the following CTFs <br />
+My writeups (work in progress) for the following CTFs <br />
 <br />
 -picoctf 2017 (https://2017game.picoctf.com) <br />
 -exploit exercices (https://exploit-exercises.com/) <br />
