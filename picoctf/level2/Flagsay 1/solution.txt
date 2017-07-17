@@ -1,0 +1,16 @@
+1- notice that the code calls system to execute the echo command with the flag and our input. here is what it looks like :
+system("/bin/echo \"%s\"\n") where %s is our input in a flag-shape pattern.
+
+2- we can have our input interepreted as a command with the following syntax: $(our command here)
+
+3- first, after launching the program let's try
+$(/bin/sh)
+
+4- this make a prompt appear, after inputing "whoami" and "ls" nothing happens. However, our commands result appear after typing exit
+
+5- We see that a file called flag.txt is in the directory. Let's do the same process as 3 to get the shell again
+
+6- inputing cat flag.txt and then exit shows the flag
+697f4b6f43dc04baf91a01c7823f2412
+
+

