@@ -1,0 +1,9 @@
+1- we open the data in wireshark and notice that the packets are from USB protocol and are URB interrupts.
+URB means usb request block. 
+
+2- when checking each packet, we notice that one and sometimes two bytes change between packets (excluding the header, which include the time of the event).
+
+3-in the USB HID usage pdf (http://www.usb.org/developers/hidpage/Hut1_12v2.pdf?), I found a table on page 53 that describe keyboard event-byte relation. When trying to translate the bytes from the first packets, we see that they correspond to "flag". This is probably the right approach.
+
+4- Translating the rest give us the flag :
+flag{pr355_0nwards_85995323}

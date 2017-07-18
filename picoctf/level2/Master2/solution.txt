@@ -1,0 +1,6 @@
+1- the first thing we can try is to extract the file.
+2- extracting the file does not work, however, when trying to "Open archive with 7zip", we see a few image appearing, including flag.png. Opening it does not work, saying the header is invalid
+3- opening the file in FTK imager shows that the first bytes of the file have been overwritten to XXXXXX. Let's try changing it to the zip header 504b 0304 0000. To change it I simply opened the file in Sublime Text and changed the first bytes.
+4- The file still won't decompress with 7zip. However, now flag.png can be opened when 7zip'a "Open archive" function is used.
+5- the flag is 
+zippidydooda49688958

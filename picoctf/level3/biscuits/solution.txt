@@ -1,0 +1,5 @@
+1- open the webpage source and notice the comment.
+2- open http://shell2017.picoctf.com:6299/private/cookies.sqlite to get the relevant file
+3- open the file with SQLite manager add-on on firefox (or other). On the left, select moz_cookies then click on the "Browse & Search" tab. We see the name of the cookie with its value. (name=ID value=F3MAqpWxIvESiUNLHsflVd)
+4- go back to http://shell2017.picoctf.com:6299/ and open the developper toolbar. On the console input type "cookie set ID F3MAqpWxIvESiUNLHsflVd" and Enter.
+5- refreshing the page gets us the flag : 027662cceb44e65eafe4b83febaed01e
