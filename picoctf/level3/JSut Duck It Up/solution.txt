@@ -1,0 +1,16 @@
+1- open the weird file in a text editor like Sublime text
+2- I have seen other challenge like this before so I know this is some weird javascript so I renamed it to file.js and ran it using node "node file.js".
+3- this gave me an error but wrote what the program was about and the flag.
+alert("aw_yiss_ducking_breadcrumbs_2ed19017")
+
+*I did a little bit more research on google and found this website : http://www.jsfuck.com/ which translate any javascript into the gibberish. 
+*I also found this, which explains how it works : https://esolangs.org/wiki/JSFuck
+*here is an example : 
+
+Now each character of the string alert("Hello, world!") can be written using only the 6 characters +!()[] in a tricky way. For a start, let's just look at the letter "a", how it's written in JSFuck:
+    "a": from string "false", second character (index 1 counting from 0)...
+    "false"[1]: "false" can be made from false+[], i.e. the boolean constant false plus an empty array...
+    (false+[])[1]: we write false as ![] (negation applied to an empty array)...
+    (![]+[])[1]: 1 is a number, we can write it as +true...
+    (![]+[])[+true]: since false is ![], true is !![]...
+    (![]+[])[+!![]] <<< that's it!

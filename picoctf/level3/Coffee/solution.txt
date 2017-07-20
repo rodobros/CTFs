@@ -1,0 +1,18 @@
+1- decompile the ".class" file. I used the following website : http://www.javadecompilers.com . But there is plenty of options to do so
+
+2- read the content of the resulting java file and notice the "getflag" function :
+	public static String get_flag() { String str1 = "Hint: Don't worry about the schematics";
+    	String str2 = "eux_Z]\\ayiqlog`s^hvnmwr[cpftbkjd";
+    	String str3 = "Zf91XhR7fa=ZVH2H=QlbvdHJx5omN2xc";
+    	byte[] arrayOfByte1 = str2.getBytes();
+    	byte[] arrayOfByte2 = str3.getBytes();
+    	byte[] arrayOfByte3 = new byte[arrayOfByte2.length];
+    	for (int i = 0; i < arrayOfByte2.length; i++)
+    	{
+    		arrayOfByte3[i] = arrayOfByte2[(arrayOfByte1[i] - 90)];
+    	}
+    	System.out.println(java.util.Arrays.toString(java.util.Base64.getDecoder().decode(arrayOfByte3)));
+    	return new String(java.util.Base64.getDecoder().decode(arrayOfByte3));
+	}
+3- It is possible to decode the resulting string by hand but I simply put it in a java program and printed the result of the function to get the flag :
+flag_{pretty_cool_huh}

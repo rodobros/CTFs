@@ -1,0 +1,9 @@
+1- open the example and look up on HashChain. see https://en.wikipedia.org/wiki/Hash_chain
+2-The trick is to notice that the seed provided is only the ID provided hashed one time... Therefore, it is easy to get the previous hash if the ID is given
+3- modify the example given in the following way:
+	3.1 modify the seed variable to the ID given when trying to get the flag
+	3.2 make the for 1000 iterations
+	3.3 add a if in the for loop that will stop the loop if the given hash is met
+	3.4 put the print in the for loop
+4- the hash to provide to the program will the second to last one, which will get us the flag:
+b41769e77d350c3d5655eab553221f0c
