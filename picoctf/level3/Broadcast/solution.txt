@@ -1,0 +1,12 @@
+1- the first challenge was figuring out what the challenge was about. Making a google search about "broadcast exponent cryptography" lead me to an wiki article about Coppersmith's attack (https://en.wikipedia.org/wiki/Coppersmith%27s_attack)
+
+2- Reading through the article I found the section "Håstad's broadcast attack" which seems to correspond to this case. It mentions calculating the original C (which will be equal to M^3, the clear text) using the Chinese Remainder Theorem.
+
+3- more google search led me to find a python implementation of it :
+https://rosettacode.org/wiki/Chinese_remainder_theorem#Python
+
+4- I tried doing the inverse power but the result of the chinese remainder was too big. More google search led me to use a binary search to find the result : 
+https://stackoverflow.com/questions/356090/how-to-compute-the-nth-root-of-a-very-big-integer
+
+5- combining these functions into the script.py file got the result :
+broadcast_with_small_e_is_killer_20472673112

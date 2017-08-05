@@ -1,5 +1,5 @@
 1-notice that our input (gotten from fgets) is printed with printf function afterwards, this allow us to use a format string attack
-2- since our secret code is a random number in hex format, let's try to print the memory using a bunch of /x
+2- since our secret code is a random number in hex format, let's try to print the memory using a bunch of %x
 
 3- we do this two times and notice the place in memory that changed between the two times
 

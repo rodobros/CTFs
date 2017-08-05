@@ -1,0 +1,10 @@
+1- there is different cases:
+1.1 - inputing admin with a random password tells us "Incorrect Password."
+1.2 - inputing admin with ' or 1=1 -- gives us "Flag is 63 characters"
+1.3 - inputing a bad request after the quote tell us there is a problem with our request
+
+2- we can put something  such as " 'or pass="a%""-- " to brute force the password character per character
+
+3- write a script (see script.py in the same directory) that post HTTP request to do just that
+4- the result of the script (it runs for about 5 minutes) is : 
+not_all_errors_should_be_shown_07fa15beae68af0694171000114ec419
